@@ -1,11 +1,16 @@
 spring:
-  # must be re-defined here because autoconfiguration properties are not loaded yet when DockerComposeListener starts the container
   docker:
     compose:
       enabled: true
       file: classpath:/compose-mongodb.yaml
       skip:
         in-tests: false
+  data:
+    mongodb:
+      auto-index-creation: true
+      database: dummy-mongo
+      host: software-factory-mongo
+      port: 27017
 
 positivinh:
   mongodb:

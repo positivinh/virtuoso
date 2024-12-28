@@ -27,11 +27,6 @@
             <artifactId>mongock-spring-v5</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-docker-compose</artifactId>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
     <build>
