@@ -1,0 +1,22 @@
+name: software-factory-mongodb
+
+services:
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=dummy-mongo
+    volumes:
+      - software-factory-mongo-volume:/data/db
+    networks:
+      software-factory:
+        aliases:
+          - software-factory-mongo
+
+networks:
+  software-factory:
+
+volumes:
+  software-factory-mongo-volume:
