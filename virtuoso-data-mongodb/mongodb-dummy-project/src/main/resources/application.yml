@@ -1,0 +1,13 @@
+spring:
+  # must be re-defined here because autoconfiguration properties are not loaded yet when DockerComposeListener starts the container
+  docker:
+    compose:
+      enabled: true
+      file: classpath:/compose-mongodb.yaml
+      skip:
+        in-tests: false
+
+positivinh:
+  mongodb:
+    repositories:
+      base-package: io.positivinh.softwarefactory.data.mongodb.dummy.repository
