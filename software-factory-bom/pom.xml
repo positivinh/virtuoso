@@ -35,6 +35,7 @@
         <swagger-v3.version>2.2.27</swagger-v3.version>
         <openapi.codegen.version>7.9.0</openapi.codegen.version>
         <logback.version>1.5.15</logback.version>
+        <mongock.version>4.1.15</mongock.version>
         <!-- plugins version -->
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
     </properties>
@@ -128,6 +129,13 @@
                 <groupId>com.github.crabs-hue.commons</groupId>
                 <artifactId>commons-validations</artifactId>
                 <version>${crabshue-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cloudyrock.mongock</groupId>
+                <artifactId>mongock-bom</artifactId>
+                <version>${mongock.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
