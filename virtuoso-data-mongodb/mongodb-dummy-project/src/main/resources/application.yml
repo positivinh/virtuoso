@@ -12,6 +12,11 @@ spring:
       host: software-factory-mongo
       port: 27017
 
+mongock:
+  enabled: true
+  migration-scan-package:
+    - io.positivinh.softwarefactory.data.mongodb.dummy.migrations
+
 positivinh:
   mongodb:
     repositories:
