@@ -56,10 +56,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.crabs-hue.commons</groupId>
+            <artifactId>commons-kotlin</artifactId>
         </dependency>
     </dependencies>
 
