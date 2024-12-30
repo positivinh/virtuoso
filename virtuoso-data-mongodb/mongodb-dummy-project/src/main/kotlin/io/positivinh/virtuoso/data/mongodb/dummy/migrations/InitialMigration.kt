@@ -1,11 +1,11 @@
-package io.positivinh.softwarefactory.data.mongodb.dummy.migrations
+package io.positivinh.virtuoso.data.mongodb.dummy.migrations
 
 import com.crabshue.commons.kotlin.logging.getLogger
 import io.mongock.api.annotations.ChangeUnit
 import io.mongock.api.annotations.Execution
 import io.mongock.api.annotations.RollbackExecution
-import io.positivinh.softwarefactory.data.mongodb.dummy.domain.DummyDocument
-import io.positivinh.softwarefactory.data.mongodb.dummy.repository.DummyDocumentRepository
+import io.positivinh.virtuoso.data.mongodb.dummy.domain.DummyDocument
+import io.positivinh.virtuoso.data.mongodb.dummy.repository.DummyDocumentRepository
 
 @ChangeUnit(id = "initial-migration", order = "001", author = "dummy-app")
 class InitialMigration(

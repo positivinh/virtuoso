@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.positivinh.software-factory</groupId>
-        <artifactId>software-factory-spring-boot-parent</artifactId>
+        <groupId>io.positivinh.virtuoso</groupId>
+        <artifactId>virtuoso-spring-boot-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
-    <groupId>io.positivinh.software-factory.data.mongodb</groupId>
-    <artifactId>software-factory-data-mongodb</artifactId>
+    <groupId>io.positivinh.virtuoso.data.mongodb</groupId>
+    <artifactId>virtuoso-data-mongodb</artifactId>
     <description>Software factory components for persistence with MongoDB</description>
     <packaging>pom</packaging>
 

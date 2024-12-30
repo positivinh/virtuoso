@@ -1,4 +1,4 @@
-package io.positivinh.softwarefactory.data.mongodb.autoconfigure.configuration
+package io.positivinh.virtuoso.data.mongodb.autoconfigure.configuration
 
 import org.springframework.core.convert.converter.Converter
 import java.time.OffsetDateTime

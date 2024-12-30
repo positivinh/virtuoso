@@ -1,7 +1,7 @@
-package io.positivinh.softwarefactory.data.mongodb.autoconfigure
+package io.positivinh.virtuoso.data.mongodb.autoconfigure
 
-import io.positivinh.softwarefactory.data.mongodb.autoconfigure.configuration.MongoDbConfiguration
-import io.positivinh.softwarefactory.data.mongodb.autoconfigure.configuration.MongockConfiguration
+import io.positivinh.virtuoso.data.mongodb.autoconfigure.configuration.MongoDbConfiguration
+import io.positivinh.virtuoso.data.mongodb.autoconfigure.configuration.MongockConfiguration
 import org.springframework.boot.autoconfigure.AutoConfiguration
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.context.annotation.Import

@@ -1,6 +1,6 @@
-package io.positivinh.softwarefactory.data.mongodb.dummy.repository
+package io.positivinh.virtuoso.data.mongodb.dummy.repository
 
-import io.positivinh.softwarefactory.data.mongodb.dummy.domain.DummyDocument
+import io.positivinh.virtuoso.data.mongodb.dummy.domain.DummyDocument
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

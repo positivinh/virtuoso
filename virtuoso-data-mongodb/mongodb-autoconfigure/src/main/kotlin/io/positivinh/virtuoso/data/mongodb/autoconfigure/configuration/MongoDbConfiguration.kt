@@ -1,4 +1,4 @@
-package io.positivinh.softwarefactory.data.mongodb.autoconfigure.configuration
+package io.positivinh.virtuoso.data.mongodb.autoconfigure.configuration
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
@@ -11,7 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
 
 
 @Configuration
-@EnableMongoRepositories("\${positivinh.mongodb.repositories.base-package}")
+@EnableMongoRepositories("\${virtuoso.mongodb.repositories.base-package}")
 @EnableMongoAuditing
 class MongoDbConfiguration {
 

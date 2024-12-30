@@ -1,10 +1,10 @@
-package io.positivinh.softwarefactory.data.mongodb.dummy.migrations
+package io.positivinh.virtuoso.data.mongodb.dummy.migrations
 
 import com.crabshue.commons.kotlin.logging.getLogger
 import io.mongock.api.annotations.ChangeUnit
 import io.mongock.api.annotations.Execution
 import io.mongock.api.annotations.RollbackExecution
-import io.positivinh.softwarefactory.data.mongodb.dummy.domain.DummyDocument
+import io.positivinh.virtuoso.data.mongodb.dummy.domain.DummyDocument
 import org.springframework.data.mongodb.core.MongoTemplate
 
 @ChangeUnit(id = "second-migration", order = "002", author = "dummy-app")

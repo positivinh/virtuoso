@@ -1,4 +1,4 @@
-package io.positivinh.softwarefactory.data.mongodb.dummy
+package io.positivinh.virtuoso.data.mongodb.dummy
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

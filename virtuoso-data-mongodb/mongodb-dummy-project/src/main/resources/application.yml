@@ -15,9 +15,9 @@ spring:
 mongock:
   enabled: true
   migration-scan-package:
-    - io.positivinh.softwarefactory.data.mongodb.dummy.migrations
+    - io.positivinh.virtuoso.data.mongodb.dummy.migrations
 
-positivinh:
+virtuoso:
   mongodb:
     repositories:
-      base-package: io.positivinh.softwarefactory.data.mongodb.dummy.repository
+      base-package: io.positivinh.virtuoso.data.mongodb.dummy.repository

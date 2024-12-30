@@ -1,4 +1,4 @@
-package io.positivinh.softwarefactory.data.mongodb.dummy.domain
+package io.positivinh.virtuoso.data.mongodb.dummy.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
