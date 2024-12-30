@@ -10,16 +10,16 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>io.positivinh.software-factory</groupId>
-    <artifactId>software-factory</artifactId>
+    <groupId>io.positivinh.virtuoso</groupId>
+    <artifactId>virtuoso</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>positvinh software factory</name>
+    <name>virtuoso software factory</name>
     <description>building blocks for software production</description>
 
     <modules>
-        <module>software-factory-bom</module>
-        <module>software-factory-spring-boot-parent</module>
+        <module>virtuoso-bom</module>
+        <module>virtuoso-spring-boot-parent</module>
         <module>dummy-project</module>
     </modules>
 

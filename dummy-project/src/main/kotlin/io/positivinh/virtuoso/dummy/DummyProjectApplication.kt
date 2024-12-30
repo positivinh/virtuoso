@@ -1,4 +1,4 @@
-package io.positivinh.softwarefactory.dummy
+package io.positivinh.virtuoso.dummy
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

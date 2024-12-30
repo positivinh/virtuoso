@@ -1,4 +1,4 @@
-package io.positivinh.softwarefactory.dummy
+package io.positivinh.virtuoso.dummy
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
