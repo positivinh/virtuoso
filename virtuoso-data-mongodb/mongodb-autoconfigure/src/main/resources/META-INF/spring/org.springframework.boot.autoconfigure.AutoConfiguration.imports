@@ -1,1 +1,2 @@
-io.positivinh.virtuoso.data.mongodb.autoconfigure.MongoDbAutoConfiguration
+io.positivinh.virtuoso.data.mongodb.autoconfigure.mongodb.MongoDbAutoConfiguration
+io.positivinh.virtuoso.data.mongodb.autoconfigure.mongock.MongockAutoConfiguration
