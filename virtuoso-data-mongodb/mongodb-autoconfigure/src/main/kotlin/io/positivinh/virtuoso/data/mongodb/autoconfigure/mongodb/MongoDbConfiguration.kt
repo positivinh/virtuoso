@@ -1,5 +1,8 @@
-package io.positivinh.virtuoso.data.mongodb.autoconfigure.configuration
+package io.positivinh.virtuoso.data.mongodb.autoconfigure.mongodb
 
+import com.crabshue.commons.kotlin.logging.getLogger
+import jakarta.annotation.PostConstruct
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -15,13 +18,26 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
 @EnableMongoAuditing
 class MongoDbConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean(LocalValidatorFactoryBean::class)
-    fun validator(): LocalValidatorFactoryBean = LocalValidatorFactoryBean()
+    private val log = getLogger()
+
+    @PostConstruct
+    fun log() {
+
+        log.info("mongodb configuration has started")
+    }
+
+    @Bean("mongoValidatorFactory")
+    fun validatorFactory(): LocalValidatorFactoryBean {
+
+        return LocalValidatorFactoryBean()
+    }
 
     @Bean
     @ConditionalOnMissingBean(ValidatingMongoEventListener::class)
-    fun validatingMongoEventListener(): ValidatingMongoEventListener = ValidatingMongoEventListener(validator())
+    fun validatingMongoEventListener(@Qualifier("mongoValidatorFactory") validatorFactory: LocalValidatorFactoryBean): ValidatingMongoEventListener {
+
+        return ValidatingMongoEventListener(validatorFactory)
+    }
 
     @Bean
     @ConditionalOnMissingBean(MongoCustomConversions::class)
