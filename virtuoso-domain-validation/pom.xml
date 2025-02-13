@@ -14,6 +14,10 @@
     <groupId>io.positivinh.virtuoso.domain</groupId>
     <artifactId>virtuoso-domain-validation</artifactId>
     <description>Software factory components for domain validation</description>
+    <modules>
+        <module>domain-validation</module>
+        <module>domain-validation-dummy-project</module>
+    </modules>
     <packaging>pom</packaging>
 
     <repositories>
