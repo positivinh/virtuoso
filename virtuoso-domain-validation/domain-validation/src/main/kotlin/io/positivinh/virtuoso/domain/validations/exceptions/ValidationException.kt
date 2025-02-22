@@ -1,13 +1,13 @@
 package io.positivinh.virtuoso.domain.validations.exceptions
 
-import com.crabshue.commons.exceptions.AbstractException
+import com.crabshue.commons.exceptions.ApplicationException
 import com.crabshue.commons.exceptions.context.ErrorType
 import org.springframework.validation.Errors
 
 /**
  * Exception raised on validation errors.
  */
-class ValidationException : AbstractException {
+class ValidationException : ApplicationException {
 
     lateinit var errors: Errors
 
