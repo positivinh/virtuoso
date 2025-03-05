@@ -16,6 +16,10 @@
 
     <properties>
         <mapstruct.version>1.6.3</mapstruct.version>
+        <plugin.sonar.version>5.0.0.4389</plugin.sonar.version>
+        <!--        <plugin.sonar.version>3.7.0.1746</plugin.sonar.version>-->
+        <plugin.jacoco.version>0.8.12</plugin.jacoco.version>
+        <!--        <plugin.jacoco.version>0.8.5</plugin.jacoco.version>-->
     </properties>
 
     <dependencies>
@@ -190,10 +194,56 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>${plugin.sonar.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${plugin.jacoco.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
+    <profiles>
+        <profile>
+            <id>sonarqube</id>
+            <properties>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+                <sonar.coverage.jacoco.xmlReportPaths>
+                    ${project.build.directory}/site/jacoco/jacoco.xml,${project.build.directory}/site/jacoco-it/jacoco.xml
+                </sonar.coverage.jacoco.xmlReportPaths>
+                <sonar.pitest.mode>reuseReport</sonar.pitest.mode>
+                <sonar.token>${env.SONAR_TOKEN}</sonar.token>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                    <goal>prepare-agent-integration</goal>
+                                    <goal>report</goal>
+                                    <goal>report-integration</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestones</id>
