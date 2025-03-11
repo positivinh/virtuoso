@@ -5,6 +5,7 @@ import jakarta.validation.ConstraintValidatorContext
 import jakarta.validation.ConstraintViolation
 import jakarta.validation.Validation
 import org.assertj.core.api.Assertions
+import kotlin.reflect.KClass
 
 object DomainObjectValidator {
 
@@ -27,6 +28,19 @@ object DomainObjectValidator {
         log.info("Validated [{}]. Constraints violations discovered: [{}]", objectToValidate, ret)
 
         return ret
+    }
+
+    fun <T> assertConstraintViolation(objectToValidate: T, fieldInError: String, annotation: KClass<*>) {
+
+        val constraintViolations = validate(objectToValidate)
+
+        Assertions.assertThat(constraintViolations).isNotEmpty()
+
+        val notBlankConstraintValidation = constraintViolations
+            .filter { it.propertyPath.toString() == fieldInError }
+            .filter { it.constraintDescriptor.annotation.annotationClass == annotation }
+
+        Assertions.assertThat(notBlankConstraintValidation).isNotNull
     }
 
     fun setErrorMessage(constraintValidatorContext: ConstraintValidatorContext, message: String?) {
