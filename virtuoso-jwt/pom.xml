@@ -17,9 +17,24 @@
     <description>Virtuoso JWT</description>
 
     <modules>
+        <module>jwt-autoconfigure</module>
+        <module>jwt-starter</module>
     </modules>
 
 
+    <properties>
+        <java-jwt.version>4.5.0</java-jwt.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <repositories>
         <repository>
             <id>github</id>
