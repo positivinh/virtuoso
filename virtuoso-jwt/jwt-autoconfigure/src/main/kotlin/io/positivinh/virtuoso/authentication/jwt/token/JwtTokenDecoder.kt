@@ -1,4 +1,4 @@
-package io.positivinh.virtuoso.authentication.jwt
+package io.positivinh.virtuoso.authentication.jwt.token
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier

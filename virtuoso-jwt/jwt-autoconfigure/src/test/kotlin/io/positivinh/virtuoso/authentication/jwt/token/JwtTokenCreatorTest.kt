@@ -1,4 +1,4 @@
-package io.positivinh.virtuoso.authentication.jwt
+package io.positivinh.virtuoso.authentication.jwt.token
 
 import io.positivinh.virtuoso.authentication.jwt.configuration.JwtAlgorithmConfiguration
 import io.positivinh.virtuoso.authentication.jwt.configuration.JwtConfigurationProperties
