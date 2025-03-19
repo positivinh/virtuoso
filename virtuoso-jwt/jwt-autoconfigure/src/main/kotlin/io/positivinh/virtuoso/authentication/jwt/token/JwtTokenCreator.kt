@@ -13,8 +13,8 @@ class JwtTokenCreator(
 
         val token = JWT.create()
             .withIssuer(jwtConfigurationProperties.issuer)
-            .withClaim("username", username)
-            .withClaim("authorities", authorities)
+            .withClaim(JwtConstants.JWT_USERNAME_CLAIM_KEY, username)
+            .withClaim(JwtConstants.JWT_AUTHORITIES_CLAIM_KEY, authorities)
             .sign(jwtAlgorithm)
 
         return token

@@ -5,11 +5,12 @@ import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.interfaces.DecodedJWT
 import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtConfigurationProperties
+import io.positivinh.virtuoso.authentication.jwt.token.vo.AuthenticationVo
 
 
 class JwtTokenDecoder(
-    private val jwtAlgorithm: Algorithm,
-    private val jwtConfigurationProperties: JwtConfigurationProperties
+    jwtAlgorithm: Algorithm,
+    jwtConfigurationProperties: JwtConfigurationProperties
 ) {
 
     private val verifier: JWTVerifier = JWT.require(jwtAlgorithm) // specify any specific claim validations
@@ -21,5 +22,15 @@ class JwtTokenDecoder(
         val decodedJWT: DecodedJWT = verifier.verify(token)
 
         return decodedJWT
+    }
+
+    fun extracAuthenticationFromToken(token: String): AuthenticationVo {
+
+        val decodedJwt = this.decodeToken(token)
+
+        val username = decodedJwt.claims.getValue(JwtConstants.JWT_USERNAME_CLAIM_KEY).asString()
+        val authorities = decodedJwt.claims.getValue(JwtConstants.JWT_AUTHORITIES_CLAIM_KEY).asList(String::class.java)
+
+        return AuthenticationVo(username, authorities)
     }
 }
