@@ -22,7 +22,6 @@
         <module>jwt-dummy-project</module>
     </modules>
 
-
     <properties>
         <java-jwt.version>4.5.0</java-jwt.version>
     </properties>
