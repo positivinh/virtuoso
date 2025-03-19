@@ -19,6 +19,7 @@
     <modules>
         <module>jwt-autoconfigure</module>
         <module>jwt-starter</module>
+        <module>jwt-dummy-project</module>
     </modules>
 
 
@@ -35,6 +36,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <repositories>
         <repository>
             <id>github</id>
