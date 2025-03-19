@@ -2,15 +2,10 @@ package io.positivinh.virtuoso.authentication.jwt.token
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
-import io.positivinh.virtuoso.authentication.jwt.configuration.JwtConfigurationProperties
-import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean
-import org.springframework.stereotype.Component
+import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtConfigurationProperties
 
-@Component
-@ConditionalOnBean(name = ["jwtAlgorithm"], value = [JwtConfigurationProperties::class])
 class JwtTokenCreator(
-    @Qualifier("jwtAlgorithm") private val jwtAlgorithm: Algorithm,
+    private val jwtAlgorithm: Algorithm,
     private val jwtConfigurationProperties: JwtConfigurationProperties
 ) {
 
