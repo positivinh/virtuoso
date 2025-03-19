@@ -1,4 +1,4 @@
-package io.positivinh.virtuoso.authentication.jwt.configuration
+package io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration
 
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test

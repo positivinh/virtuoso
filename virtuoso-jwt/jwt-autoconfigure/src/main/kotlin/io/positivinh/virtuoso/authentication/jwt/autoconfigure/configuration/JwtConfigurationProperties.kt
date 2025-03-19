@@ -1,4 +1,4 @@
-package io.positivinh.virtuoso.authentication.jwt.configuration
+package io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration

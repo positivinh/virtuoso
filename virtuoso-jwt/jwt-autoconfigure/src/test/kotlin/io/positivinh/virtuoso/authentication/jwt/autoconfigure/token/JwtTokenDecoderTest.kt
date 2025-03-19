@@ -1,13 +1,15 @@
-package io.positivinh.virtuoso.authentication.jwt.token
+package io.positivinh.virtuoso.authentication.jwt.autoconfigure.token
 
-import io.positivinh.virtuoso.authentication.jwt.configuration.JwtAlgorithmConfiguration
-import io.positivinh.virtuoso.authentication.jwt.configuration.JwtConfigurationProperties
+import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtAlgorithmConfiguration
+import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtConfiguration
+import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtConfigurationProperties
+import io.positivinh.virtuoso.authentication.jwt.token.JwtTokenDecoder
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig
 
-@SpringJUnitConfig(classes = [JwtConfigurationProperties::class, JwtAlgorithmConfiguration::class, JwtTokenDecoder::class])
+@SpringJUnitConfig(classes = [JwtConfigurationProperties::class, JwtAlgorithmConfiguration::class, JwtConfiguration::class])
 class JwtTokenDecoderTest {
 
     @Autowired

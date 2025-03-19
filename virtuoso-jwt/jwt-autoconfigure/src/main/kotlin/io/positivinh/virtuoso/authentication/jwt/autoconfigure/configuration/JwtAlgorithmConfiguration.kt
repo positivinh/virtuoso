@@ -1,4 +1,4 @@
-package io.positivinh.virtuoso.authentication.jwt.configuration
+package io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration
 
 import com.auth0.jwt.algorithms.Algorithm
 import org.springframework.context.annotation.Bean
