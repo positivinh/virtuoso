@@ -243,6 +243,37 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>docker</id>
+            <properties>
+                <spring-boot.build-image.skip>true</spring-boot.build-image.skip>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <skip>${spring-boot.build-image.skip}</skip>
+                            <image>
+                                <name>virtuoso/${project.artifactId}</name>
+                                <tags>
+                                    virtuoso/${project.artifactId}:${project.version},virtuoso/${project.artifactId}:latest
+                                </tags>
+                            </image>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-image</id>
+                                <goals>
+                                    <goal>build-image-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     <pluginRepositories>
         <pluginRepository>
