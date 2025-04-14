@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Import
 import org.springframework.context.annotation.PropertySource
 
 @AutoConfiguration(before = [MongoAutoConfiguration::class])
-//@ConfigurationPropertiesScan
 @PropertySource(value = ["classpath:/mongodb.properties"])
-@Import(MongoDbConfiguration::class)
+@Import(MongoDbConfiguration::class, MongoDbAuditingConfiguration::class)
 class MongoDbAutoConfiguration
