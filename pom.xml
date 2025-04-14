@@ -38,4 +38,10 @@
             <url>https://maven.pkg.github.com/positivinh/virtuoso</url>
         </repository>
     </distributionManagement>
+
+    <scm>
+        <url>https://github.com/positivinh/virtuoso</url>
+        <tag>HEAD</tag>
+        <connection>scm:git:https://github.com/positivinh/virtuoso</connection>
+    </scm>
 </project>
