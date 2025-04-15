@@ -135,6 +135,33 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>io.positivinh.virtuoso.data.mongodb</groupId>
+                <artifactId>mongodb-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.positivinh.virtuoso.web</groupId>
+                <artifactId>web-security-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.positivinh.virtuoso.domain</groupId>
+                <artifactId>domain-validation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.positivinh.virtuoso.domain</groupId>
+                <artifactId>domain-validation</artifactId>
+                <version>${project.version}</version>
+                <classifier>tests</classifier>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.positivinh.virtuoso.authentication</groupId>
+                <artifactId>jwt-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
