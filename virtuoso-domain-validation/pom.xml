@@ -7,18 +7,20 @@
     <parent>
         <groupId>io.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-spring-boot-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath/>
     </parent>
 
     <groupId>io.positivinh.virtuoso.domain</groupId>
     <artifactId>virtuoso-domain-validation</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <description>Software factory components for domain validation</description>
+    <packaging>pom</packaging>
+
     <modules>
         <module>domain-validation</module>
         <module>domain-validation-dummy-project</module>
     </modules>
-    <packaging>pom</packaging>
 
     <repositories>
         <repository>
