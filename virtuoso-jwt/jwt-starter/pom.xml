@@ -6,11 +6,10 @@
     <parent>
         <groupId>io.positivinh.virtuoso.authentication</groupId>
         <artifactId>virtuoso-jwt</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>jwt-starter</artifactId>
-    <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
@@ -20,7 +19,7 @@
         <dependency>
             <groupId>io.positivinh.virtuoso.authentication</groupId>
             <artifactId>jwt-autoconfigure</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
