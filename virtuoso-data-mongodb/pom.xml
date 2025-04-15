@@ -13,6 +13,7 @@
 
     <groupId>io.positivinh.virtuoso.data.mongodb</groupId>
     <artifactId>virtuoso-data-mongodb</artifactId>
+    <version>1.0.0</version>
     <description>Software factory components for persistence with MongoDB</description>
     <packaging>pom</packaging>
 

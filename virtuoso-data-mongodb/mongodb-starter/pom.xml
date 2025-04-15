@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.positivinh.virtuoso.data.mongodb</groupId>
         <artifactId>virtuoso-data-mongodb</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>mongodb-starter</artifactId>
@@ -15,7 +15,7 @@
         <dependency>
             <groupId>io.positivinh.virtuoso.data.mongodb</groupId>
             <artifactId>mongodb-autoconfigure</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
