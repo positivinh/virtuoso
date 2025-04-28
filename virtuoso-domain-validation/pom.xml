@@ -19,6 +19,8 @@
 
     <modules>
         <module>domain-validation</module>
+        <module>domain-validation-test</module>
+        <module>domain-validation-starter</module>
         <module>domain-validation-dummy-project</module>
     </modules>
 
