@@ -18,6 +18,7 @@
 
     <modules>
         <module>virtuoso-bom</module>
+        <module>virtuoso-parent</module>
         <module>virtuoso-spring-boot-parent</module>
         <module>dummy-project</module>
     </modules>
