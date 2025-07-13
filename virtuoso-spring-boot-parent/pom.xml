@@ -244,7 +244,11 @@
         <profile>
             <id>docker</id>
             <properties>
+                <!-- change this property only for module targeted for containerization -->
                 <spring-boot.build-image.skip>true</spring-boot.build-image.skip>
+                <virtuoso.image.repository>virtuoso</virtuoso.image.repository>
+                <virtuoso.image.name>${project.artifactId}</virtuoso.image.name>
+                <virtuoso.image.tag>${project.version}</virtuoso.image.tag>
             </properties>
             <build>
                 <plugins>
@@ -254,9 +258,9 @@
                         <configuration>
                             <skip>${spring-boot.build-image.skip}</skip>
                             <image>
-                                <name>virtuoso/${project.artifactId}</name>
+                                <name>${virtuoso.image.repository}/${virtuoso.image.name}</name>
                                 <tags>
-                                    virtuoso/${project.artifactId}:${project.version},virtuoso/${project.artifactId}:latest
+                                    ${virtuoso.image.repository}/${virtuoso.image.name}:${virtuoso.image.tag},${virtuoso.image.repository}/${virtuoso.image.name}:latest
                                 </tags>
                             </image>
                         </configuration>
