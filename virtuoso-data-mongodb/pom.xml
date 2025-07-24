@@ -19,6 +19,7 @@
 
     <modules>
         <module>mongodb-autoconfigure</module>
+        <module>mongodb-starter-test</module>
         <module>mongodb-starter</module>
         <module>mongodb-dummy-project</module>
     </modules>
