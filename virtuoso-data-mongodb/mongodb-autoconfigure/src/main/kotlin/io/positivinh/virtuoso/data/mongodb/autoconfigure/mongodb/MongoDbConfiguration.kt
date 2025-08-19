@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions
-import org.springframework.data.mongodb.core.mapping.event.ValidatingMongoEventListener
+import org.springframework.data.mongodb.core.mapping.event.ValidatingEntityCallback
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
 
@@ -31,10 +31,10 @@ class MongoDbConfiguration {
     }
 
     @Bean
-    @ConditionalOnMissingBean(ValidatingMongoEventListener::class)
-    fun validatingMongoEventListener(@Qualifier("mongoValidatorFactory") validatorFactory: LocalValidatorFactoryBean): ValidatingMongoEventListener {
+    @ConditionalOnMissingBean(ValidatingEntityCallback::class)
+    fun validatingMongoEventListener(@Qualifier("mongoValidatorFactory") validatorFactory: LocalValidatorFactoryBean): ValidatingEntityCallback {
 
-        return ValidatingMongoEventListener(validatorFactory)
+        return ValidatingEntityCallback(validatorFactory)
     }
 
     @Bean
@@ -50,9 +50,4 @@ class MongoDbConfiguration {
             )
         )
     }
-
-//    @Bean
-//    fun myAuditorProvider(): AuditorAware<AuditableUser> {
-//        return AuditorAwareImpl()
-//    }
 }
