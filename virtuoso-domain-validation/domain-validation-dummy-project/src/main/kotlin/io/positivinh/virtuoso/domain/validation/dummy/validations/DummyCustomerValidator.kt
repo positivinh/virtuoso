@@ -2,7 +2,7 @@ package io.positivinh.virtuoso.domain.validation.dummy.validations
 
 import io.positivinh.virtuoso.domain.validation.dummy.model.EntityToValidate
 import io.positivinh.virtuoso.domain.validations.SimpleValidator
-import org.apache.commons.lang3.StringUtils
+import org.apache.commons.lang3.Strings
 import org.springframework.validation.Errors
 
 /**
@@ -18,7 +18,7 @@ class DummyCustomerValidator : SimpleValidator<EntityToValidate> {
 
         val propertyValidatedByCustomValidator = entity.propertyValidatedByCustomValidator
 
-        if (!StringUtils.contains(propertyValidatedByCustomValidator, CUSTOM_VALIDATOR_TOKEN)) {
+        if (!Strings.CS.contains(propertyValidatedByCustomValidator, CUSTOM_VALIDATOR_TOKEN)) {
           errors.rejectValue("propertyValidatedByCustomValidator", "CustomValidation")
         }
     }
