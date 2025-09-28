@@ -17,6 +17,8 @@
         <mapstruct.version>1.6.3</mapstruct.version>
         <plugin.sonar.version>5.0.0.4389</plugin.sonar.version>
         <plugin.jacoco.version>0.8.12</plugin.jacoco.version>
+        <plugin.surefire.version>3.5.4</plugin.surefire.version>
+        <plugin.failsafe.version>3.5.4</plugin.failsafe.version>
     </properties>
 
     <dependencies>
@@ -275,6 +277,31 @@
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${plugin.jacoco.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${plugin.surefire.version}</version>
+                    <configuration>
+                        <argLine>-Dspring.config.name=application,api,persistence,actuator</argLine>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${plugin.failsafe.version}</version>
+                    <configuration>
+                        <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                        <argLine>-Dspring.config.name=application,api,persistence,actuator</argLine>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>integration-test</goal>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
