@@ -6,12 +6,13 @@
     <parent>
         <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-bom</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
         <relativePath>../virtuoso-bom</relativePath>
     </parent>
 
     <artifactId>virtuoso-parent</artifactId>
     <packaging>pom</packaging>
+    <name>Virtuoso parent POM</name>
 
     <properties>
         <dokka.version>2.0.0</dokka.version>
