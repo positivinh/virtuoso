@@ -30,13 +30,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub positivinh Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/positivinh/virtuoso</url>
-        </repository>
-    </distributionManagement>
 
     <scm>
         <url>https://github.com/positivinh/virtuoso</url>
@@ -46,10 +39,17 @@
 
     <profiles>
         <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub positivinh Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/positivinh/virtuoso</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
             <id>maven-central</id>
-            <properties>
-                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
