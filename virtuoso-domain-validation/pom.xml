@@ -5,15 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.positivinh.virtuoso</groupId>
+        <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-spring-boot-parent</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
         <relativePath/>
     </parent>
 
-    <groupId>io.positivinh.virtuoso.domain</groupId>
+    <groupId>io.github.positivinh.virtuoso.domain</groupId>
     <artifactId>virtuoso-domain-validation</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.2.0</version>
+    <name>Virtuoso Domain Validation</name>
     <description>Software factory components for domain validation</description>
     <packaging>pom</packaging>
 
@@ -38,11 +39,53 @@
         </repository>
     </repositories>
 
-    <distributionManagement>
-        <repository>
+    <profiles>
+        <profile>
             <id>github</id>
-            <name>GitHub positivinh Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/positivinh/virtuoso-domain-validation</url>
-        </repository>
-    </distributionManagement>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub positivinh Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/positivinh/virtuoso-domain-validation</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>maven-central</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.4</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.9.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
