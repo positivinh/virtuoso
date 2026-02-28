@@ -6,12 +6,13 @@
     <parent>
         <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-parent</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
         <relativePath>../virtuoso-parent</relativePath>
     </parent>
 
     <artifactId>virtuoso-spring-boot-parent</artifactId>
     <packaging>pom</packaging>
+    <name>Virtuoso Spring Boot starter parent</name>
 
     <properties>
         <mapstruct.version>1.6.3</mapstruct.version>
