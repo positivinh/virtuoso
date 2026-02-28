@@ -4,13 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.positivinh.virtuoso</groupId>
+        <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-spring-boot-parent</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <relativePath>../virtuoso-spring-boot-parent</relativePath>
     </parent>
 
     <artifactId>dummy-project</artifactId>
+    <name>Virtuoso dummy project to test integration</name>
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>

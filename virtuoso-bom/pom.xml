@@ -4,13 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.positivinh.virtuoso</groupId>
+        <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
     </parent>
 
     <artifactId>virtuoso-bom</artifactId>
     <packaging>pom</packaging>
+    <name>Virtuoso Bill of Materials</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,8 +19,9 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <kotlin.version>2.2.0</kotlin.version>
+        <virtuoso.version>1.2.0</virtuoso.version>
         <!-- dependencies version -->
-        <spring-boot.version>3.5.3</spring-boot.version>
+        <spring-boot.version>3.5.6</spring-boot.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
         <crabshue-commons.version>1.1.0</crabshue-commons.version>
         <mapstruct.version>1.6.3</mapstruct.version>
@@ -163,24 +165,24 @@
             </dependency>
             <!-- Virtuoso -->
             <dependency>
-                <groupId>io.positivinh.virtuoso.data.mongodb</groupId>
+                <groupId>io.github.positivinh.virtuoso.data.mongodb</groupId>
                 <artifactId>mongodb-starter</artifactId>
-                <version>${project.version}</version>
+                <version>${virtuoso.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.positivinh.virtuoso.web</groupId>
+                <groupId>io.github.positivinh.virtuoso.web</groupId>
                 <artifactId>web-security-starter</artifactId>
-                <version>${project.version}</version>
+                <version>${virtuoso.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.positivinh.virtuoso.domain</groupId>
+                <groupId>io.github.positivinh.virtuoso.domain</groupId>
                 <artifactId>domain-validation-starter</artifactId>
-                <version>${project.version}</version>
+                <version>${virtuoso.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.positivinh.virtuoso.authentication</groupId>
+                <groupId>io.github.positivinh.virtuoso.authentication</groupId>
                 <artifactId>jwt-starter</artifactId>
-                <version>${project.version}</version>
+                <version>${virtuoso.version}</version>
             </dependency>
 
             <!-- Spring Cloud -->
