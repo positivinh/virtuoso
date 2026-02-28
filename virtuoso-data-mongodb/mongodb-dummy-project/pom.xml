@@ -6,21 +6,22 @@
     <parent>
         <groupId>io.github.positivinh.virtuoso.data.mongodb</groupId>
         <artifactId>virtuoso-data-mongodb</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.0</version>
     </parent>
 
     <artifactId>mongodb-dummy-project</artifactId>
+    <name>Virtuoso MongoDB dummy project for integration testing</name>
 
     <dependencies>
         <dependency>
             <groupId>io.github.positivinh.virtuoso.data.mongodb</groupId>
             <artifactId>mongodb-starter</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
+            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.positivinh.virtuoso.data.mongodb</groupId>
             <artifactId>mongodb-starter-test</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
+            <version>1.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
