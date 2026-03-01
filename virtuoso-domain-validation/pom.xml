@@ -7,13 +7,13 @@
     <parent>
         <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-spring-boot-parent</artifactId>
-        <version>1.2.0</version>
+        <version>1.3.0-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
     <groupId>io.github.positivinh.virtuoso.domain</groupId>
     <artifactId>virtuoso-domain-validation</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0-SNAPSHOT</version>
     <name>Virtuoso Domain Validation</name>
     <description>Software factory components for domain validation</description>
     <packaging>pom</packaging>
