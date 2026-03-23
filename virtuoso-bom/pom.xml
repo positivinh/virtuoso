@@ -172,6 +172,12 @@
                 <version>${virtuoso.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.github.positivinh.virtuoso.data.mongodb</groupId>
+                <artifactId>mongodb-starter-test</artifactId>
+                <version>${virtuoso.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
                 <groupId>io.github.positivinh.virtuoso.web</groupId>
                 <artifactId>web-security-starter</artifactId>
                 <version>${virtuoso.version}</version>
