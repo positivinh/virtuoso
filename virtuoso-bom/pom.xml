@@ -25,7 +25,7 @@
         <!-- dependencies version -->
         <spring-boot.version>4.0.4</spring-boot.version>
         <spring-cloud.version>2025.1.1</spring-cloud.version>
-        <crabshue-commons.version>1.1.0</crabshue-commons.version>
+        <crabshue-commons.version>2.1.0</crabshue-commons.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <jackson-bom.version>3.1.0</jackson-bom.version>
         <junit-jupiter.version>5.13.3</junit-jupiter.version>
@@ -38,6 +38,7 @@
         <liquibase.version>4.33.0</liquibase.version>
         <swagger-v3.version>2.2.27</swagger-v3.version>
         <openapi.codegen.version>7.9.0</openapi.codegen.version>
+        <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
         <!--        <logback.version>1.5.18</logback.version>-->
         <mongock.version>5.5.1</mongock.version>
         <jakarta-validation.version>3.1.1</jakarta-validation.version>
@@ -133,6 +134,11 @@
                 <artifactId>commons-validations</artifactId>
                 <version>${crabshue-commons.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.crabs-hue.commons</groupId>
+                <artifactId>commons-json</artifactId>
+                <version>${crabshue-commons.version}</version>
+            </dependency>
             <!-- Mongock -->
             <dependency>
                 <groupId>io.mongock</groupId>
@@ -208,6 +214,37 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!-- open api generation -->
+            <dependency>
+                <groupId>tools.jackson.module</groupId>
+                <artifactId>jackson-module-kotlin</artifactId>
+                <version>${jackson-bom.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openapitools</groupId>
+                <artifactId>jackson-databind-nullable</artifactId>
+                <version>0.2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-v3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-v3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
