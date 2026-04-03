@@ -15,7 +15,7 @@
     <name>Virtuoso parent POM</name>
 
     <properties>
-        <dokka.version>2.0.0</dokka.version>
+        <dokka.version>2.2.0</dokka.version>
     </properties>
 
     <build>
