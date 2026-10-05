@@ -200,6 +200,7 @@
                         </args>
                         <compilerPlugins>
                             <plugin>spring</plugin>
+                            <plugin>lombok</plugin>
                         </compilerPlugins>
                         <annotationProcessorPaths>
                             <path>
@@ -229,6 +230,11 @@
                             <groupId>org.springframework.boot</groupId>
                             <artifactId>spring-boot-autoconfigure-processor</artifactId>
                             <version>${spring-boot.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.jetbrains.kotlin</groupId>
+                            <artifactId>kotlin-maven-lombok</artifactId>
+                            <version>${kotlin.version}</version>
                         </dependency>
                     </dependencies>
                     <executions>
