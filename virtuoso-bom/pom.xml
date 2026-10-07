@@ -199,6 +199,11 @@
                 <version>${virtuoso.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.github.positivinh.virtuoso.web</groupId>
+                <artifactId>web-mvc-starter</artifactId>
+                <version>${virtuoso.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.github.positivinh.virtuoso.domain</groupId>
                 <artifactId>domain-validation-starter</artifactId>
                 <version>${virtuoso.version}</version>
