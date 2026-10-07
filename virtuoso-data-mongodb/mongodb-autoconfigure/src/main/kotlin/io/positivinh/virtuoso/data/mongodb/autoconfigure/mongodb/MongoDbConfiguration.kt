@@ -2,14 +2,15 @@ package io.positivinh.virtuoso.data.mongodb.autoconfigure.mongodb
 
 import com.crabshue.commons.kotlin.logging.getLogger
 import jakarta.annotation.PostConstruct
-import org.springframework.beans.factory.annotation.Qualifier
+import jakarta.validation.Validation
+import jakarta.validation.Validator
+import org.springframework.beans.factory.ObjectProvider
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions
 import org.springframework.data.mongodb.core.mapping.event.ValidatingEntityCallback
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
 
 
 @Configuration
@@ -24,17 +25,19 @@ class MongoDbConfiguration {
         log.info("mongodb configuration has started")
     }
 
-    @Bean("mongoValidatorFactory")
-    fun validatorFactory(): LocalValidatorFactoryBean {
-
-        return LocalValidatorFactoryBean()
-    }
-
+    /**
+     * Validates documents before they are saved.
+     *
+     * Uses the application's validator. No validator bean is declared here: a library-defined
+     * `Validator` bean would make Spring Boot's default validator back off.
+     */
     @Bean
     @ConditionalOnMissingBean(ValidatingEntityCallback::class)
-    fun validatingMongoEventListener(@Qualifier("mongoValidatorFactory") validatorFactory: LocalValidatorFactoryBean): ValidatingEntityCallback {
+    fun validatingMongoEventListener(validator: ObjectProvider<Validator>): ValidatingEntityCallback {
 
-        return ValidatingEntityCallback(validatorFactory)
+        return ValidatingEntityCallback(
+            validator.getIfAvailable { Validation.buildDefaultValidatorFactory().validator }
+        )
     }
 
     @Bean
