@@ -36,7 +36,7 @@
         <lombok.version>1.18.38</lombok.version>
         <testcontainers.version>1.21.3</testcontainers.version>
         <liquibase.version>4.33.0</liquibase.version>
-        <swagger-v3.version>2.2.27</swagger-v3.version>
+        <swagger-v3.version>2.2.55</swagger-v3.version>
         <openapi.codegen.version>7.9.0</openapi.codegen.version>
         <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
         <!--        <logback.version>1.5.18</logback.version>-->
