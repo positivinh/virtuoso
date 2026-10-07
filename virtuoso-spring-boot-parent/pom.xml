@@ -17,7 +17,7 @@
     <properties>
         <mapstruct.version>1.6.3</mapstruct.version>
         <plugin.sonar.version>5.0.0.4389</plugin.sonar.version>
-        <plugin.jacoco.version>0.8.12</plugin.jacoco.version>
+        <plugin.jacoco.version>0.8.15</plugin.jacoco.version>
         <plugin.surefire.version>3.5.4</plugin.surefire.version>
         <plugin.failsafe.version>3.5.4</plugin.failsafe.version>
     </properties>
