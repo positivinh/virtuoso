@@ -1,0 +1,16 @@
+# Actions used by the shared workflows, and the dependency versions managed in virtuoso-bom.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: [ '*' ]
+
+  - package-ecosystem: maven
+    directory: /
+    schedule:
+      interval: weekly

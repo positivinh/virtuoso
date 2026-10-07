@@ -1,0 +1,47 @@
+# Reusable build for every Virtuoso Maven repo: compiles and runs the unit tests, and deploys
+# to GitHub Packages (`github` profile) when `deploy` is true.
+# Integration tests (failsafe) are skipped: they need resources the runners can't reach.
+
+name: Maven build
+
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        description: JDK version used to build
+        type: string
+        required: true
+      deploy:
+        description: Deploy the artifacts to GitHub Packages
+        type: boolean
+        default: false
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up JDK ${{ inputs.java-version }}
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          java-version: ${{ inputs.java-version }}
+          distribution: temurin
+          cache: maven
+          server-id: github # reads the virtuoso parent, BOM and starters from GitHub Packages
+
+      - name: Build
+        if: ${{ !inputs.deploy }}
+        run: mvn -B package
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Build and deploy to GitHub Packages
+        if: ${{ inputs.deploy }}
+        run: mvn -B deploy -Pgithub -DskipITs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

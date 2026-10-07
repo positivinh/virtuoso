@@ -1,0 +1,68 @@
+# Reusable Maven Central release for the Virtuoso libraries. Called on `release: published`:
+# the release tag (with or without a leading `v`) must equal the POM version, and that version
+# must not be a SNAPSHOT, since Central releases are immutable.
+# Integration tests (failsafe) are skipped: they need resources the runners can't reach.
+
+name: Maven Central release
+
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        description: JDK version used to build
+        type: string
+        required: true
+    secrets:
+      gpg-private-key:
+        required: true
+      gpg-passphrase:
+        required: true
+      central-username:
+        required: true
+      central-token:
+        required: true
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      MAVEN_USERNAME: ${{ secrets.central-username }}
+      MAVEN_PASSWORD: ${{ secrets.central-token }}
+      MAVEN_GPG_PASSPHRASE: ${{ secrets.gpg-passphrase }}
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up JDK ${{ inputs.java-version }}
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          java-version: ${{ inputs.java-version }}
+          distribution: temurin
+          cache: maven
+          # `github` resolves the virtuoso dependencies, `central` is the publishing server
+          mvn-server-credentials: |
+            github:GITHUB_ACTOR:GITHUB_TOKEN
+            central:MAVEN_USERNAME:MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.gpg-private-key }}
+          gpg-passphrase-env-var: MAVEN_GPG_PASSPHRASE
+
+      - name: Check the release version
+        run: |
+          version=$(mvn -B -q help:evaluate -Dexpression=project.version -DforceStdout)
+          tag="${GITHUB_REF_NAME#v}"
+          if [[ "$version" == *-SNAPSHOT ]]; then
+            echo "::error::Cannot publish the SNAPSHOT version $version to Maven Central"
+            exit 1
+          fi
+          if [[ "$version" != "$tag" ]]; then
+            echo "::error::Release tag $GITHUB_REF_NAME does not match the POM version $version"
+            exit 1
+          fi
+
+      - name: Deploy to Maven Central
+        run: mvn -B deploy -Pmaven-central -DskipITs
