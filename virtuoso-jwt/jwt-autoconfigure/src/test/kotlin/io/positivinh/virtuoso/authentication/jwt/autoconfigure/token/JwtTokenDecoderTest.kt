@@ -1,5 +1,8 @@
 package io.positivinh.virtuoso.authentication.jwt.autoconfigure.token
 
+import com.auth0.jwt.JWT
+import com.auth0.jwt.algorithms.Algorithm
+import com.auth0.jwt.exceptions.JWTVerificationException
 import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtAlgorithmConfiguration
 import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtConfiguration
 import io.positivinh.virtuoso.authentication.jwt.autoconfigure.configuration.JwtConfigurationProperties
@@ -14,6 +17,12 @@ class JwtTokenDecoderTest {
 
     @Autowired
     private lateinit var jwtTokenDecoder: JwtTokenDecoder
+
+    @Autowired
+    private lateinit var jwtAlgorithm: Algorithm
+
+    @Autowired
+    private lateinit var jwtConfigurationProperties: JwtConfigurationProperties
 
     @Test
     fun decode() {
@@ -39,5 +48,17 @@ class JwtTokenDecoderTest {
 
         Assertions.assertThat(username).isEqualTo("username")
         Assertions.assertThat(authorities).containsAll(listOf("ROLE_USER", "ROLE_ADMIN"))
+    }
+
+    @Test
+    fun extractAuthentication_missingClaims_verificationFailure() {
+
+        val token = JWT.create()
+            .withIssuer(jwtConfigurationProperties.issuer)
+            .sign(jwtAlgorithm)
+
+        val thrownException = Assertions.catchException { jwtTokenDecoder.extracAuthenticationFromToken(token) }
+
+        Assertions.assertThat(thrownException).isInstanceOf(JWTVerificationException::class.java)
     }
 }
