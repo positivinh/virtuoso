@@ -40,6 +40,8 @@ class EntityValidatorTest {
             .isExactlyInstanceOf(ValidationException::class.java)
         Assertions.assertThat(throwable.getFirstContextValue(CommonErrorContext.EXCEPTION_MESSAGE.name))
             .isEqualTo(EntityErrorType.ENTITY_INVALID)
+        // the entity may hold secrets: it must never travel with the exception
+        Assertions.assertThat(throwable.getFirstContextValue(EntityErrorContext.ENTITY.name)).isNull()
 
         val errors = throwable.getFirstContextValue(EntityErrorContext.ERRORS.name) as List<*>
         Assertions.assertThat(errors.size).isEqualTo(1)
