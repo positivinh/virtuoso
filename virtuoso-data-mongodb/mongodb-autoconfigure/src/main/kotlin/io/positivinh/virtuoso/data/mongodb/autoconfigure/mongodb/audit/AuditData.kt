@@ -4,7 +4,7 @@ import org.springframework.data.annotation.CreatedBy
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedBy
 import org.springframework.data.annotation.LastModifiedDate
-import java.time.LocalDateTime
+import java.time.Instant
 
 data class AuditData(
 
@@ -12,11 +12,11 @@ data class AuditData(
     var createdBy: String? = null,
 
     @CreatedDate
-    var createdDateTime: LocalDateTime? = null,
+    var createdDateTime: Instant? = null,
 
     @LastModifiedBy
     var lastModifiedBy: String? = null,
 
     @LastModifiedDate
-    var lastModifiedDateTime: LocalDateTime? = null,
+    var lastModifiedDateTime: Instant? = null,
 )
