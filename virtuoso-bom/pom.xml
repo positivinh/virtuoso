@@ -184,6 +184,16 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
+                <groupId>io.github.positivinh.virtuoso.security</groupId>
+                <artifactId>security-core</artifactId>
+                <version>${virtuoso.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.positivinh.virtuoso.security</groupId>
+                <artifactId>security-starter</artifactId>
+                <version>${virtuoso.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.github.positivinh.virtuoso.web</groupId>
                 <artifactId>web-security-starter</artifactId>
                 <version>${virtuoso.version}</version>
