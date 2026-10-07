@@ -38,7 +38,7 @@
         <liquibase.version>4.33.0</liquibase.version>
         <swagger-v3.version>2.2.55</swagger-v3.version>
         <openapi.codegen.version>7.9.0</openapi.codegen.version>
-        <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
+        <springdoc-openapi.version>3.1.1</springdoc-openapi.version>
         <!--        <logback.version>1.5.18</logback.version>-->
         <mongock.version>5.5.1</mongock.version>
         <jakarta-validation.version>3.1.1</jakarta-validation.version>
