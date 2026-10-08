@@ -21,7 +21,7 @@
         <!-- virtuoso -->
         <virtuoso.version>2.0.0-SNAPSHOT</virtuoso.version>
         <!-- -->
-        <kotlin.version>2.3.10</kotlin.version>
+        <kotlin.version>2.4.20</kotlin.version>
         <!-- dependencies version -->
         <!-- keep in step with the spring-boot-starter-parent version in the root pom.xml -->
         <spring-boot.version>4.1.1</spring-boot.version>
@@ -34,7 +34,7 @@
         <mockito-kotlin.version>6.0.0</mockito-kotlin.version>
         <json-path.version>2.9.0</json-path.version>
         <feign.version>13.6</feign.version>
-        <testcontainers.version>1.21.3</testcontainers.version>
+        <testcontainers.version>2.0.5</testcontainers.version>
         <liquibase.version>4.33.0</liquibase.version>
         <swagger-v3.version>2.2.55</swagger-v3.version>
         <openapi.codegen.version>7.9.0</openapi.codegen.version>
