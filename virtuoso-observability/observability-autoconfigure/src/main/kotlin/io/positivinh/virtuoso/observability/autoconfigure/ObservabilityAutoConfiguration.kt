@@ -1,6 +1,7 @@
 package io.positivinh.virtuoso.observability.autoconfigure
 
 import io.micrometer.observation.ObservationRegistry
+import io.positivinh.virtuoso.observability.autoconfigure.configuration.LogExportConfiguration
 import io.positivinh.virtuoso.observability.autoconfigure.configuration.MongoObservabilityConfiguration
 import io.positivinh.virtuoso.observability.autoconfigure.configuration.ObservabilityConfigurationProperties
 import io.positivinh.virtuoso.observability.autoconfigure.configuration.ObservationFilterConfiguration
@@ -10,8 +11,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Import
 
 /**
- * Virtuoso defaults on top of Spring Boot's OpenTelemetry support: MongoDB command spans without their payload, and no
- * observations for health checks or Eureka traffic.
+ * Virtuoso defaults on top of Spring Boot's OpenTelemetry support: MongoDB command spans without their payload, no
+ * observations for health checks or Eureka traffic, and log export when a logs endpoint is configured.
  *
  * The `management.*` defaults (sampling, exporters off) come from `observability.properties` through
  * [ObservabilityDefaultsEnvironmentPostProcessor], not `@PropertySource`: Boot's own auto-configurations read them, and
@@ -20,5 +21,5 @@ import org.springframework.context.annotation.Import
 @AutoConfiguration
 @ConditionalOnClass(ObservationRegistry::class)
 @EnableConfigurationProperties(ObservabilityConfigurationProperties::class)
-@Import(ObservationFilterConfiguration::class, MongoObservabilityConfiguration::class)
+@Import(ObservationFilterConfiguration::class, MongoObservabilityConfiguration::class, LogExportConfiguration::class)
 class ObservabilityAutoConfiguration

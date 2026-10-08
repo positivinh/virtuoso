@@ -13,6 +13,17 @@ class ObservabilityConfigurationProperties {
 
     val mongodb = MongoDb()
 
+    val logs = Logs()
+
+    class Logs {
+
+        /**
+         * Whether log lines are exported over OTLP. Takes effect only when
+         * `management.opentelemetry.logging.export.otlp.endpoint` is set.
+         */
+        var enabled: Boolean = true
+    }
+
     class MongoDb {
 
         /** Whether MongoDB command spans are created. */

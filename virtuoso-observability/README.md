@@ -10,6 +10,10 @@ Tracing, metrics and log correlation for Virtuoso applications, on top of Spring
 - **MongoDB command spans** from the driver's own Micrometer support (Boot only configures MongoDB metrics). Spans never
   carry the command text, which would include password hashes and personal data, unless
   `virtuoso.observability.mongodb.command-payload=true`.
+- **Log export**: the OpenTelemetry Logback appender, attached to the root logger in code (no `logback-spring.xml`)
+  when `management.opentelemetry.logging.export.otlp.endpoint` is set. Records carry the message, level, logger and
+  the active trace and span ids, not the raw arguments or the MDC. The appender is alpha-only; its version in
+  `virtuoso-bom` must match Spring Boot's OpenTelemetry version (ADR-0005).
 - **No observations for noise**: requests (served or sent) whose path matches `virtuoso.observability.ignored-paths`,
   by default `/actuator/**` (health checks) and `/eureka/**` (registration and heartbeats).
 - **Safe defaults** (`observability.properties`, lowest priority, so any application or deployment setting wins):
@@ -24,6 +28,7 @@ Tracing, metrics and log correlation for Virtuoso applications, on top of Spring
 | `virtuoso.observability.ignored-paths`             | `/actuator/**`, `/eureka/**`  | Request paths (Ant patterns) not observed  |
 | `virtuoso.observability.mongodb.enabled`           | `true`                        | MongoDB command spans                      |
 | `virtuoso.observability.mongodb.command-payload`   | `false`                       | Command text on MongoDB spans              |
+| `virtuoso.observability.logs.enabled`              | `true`                        | Log export, when a logs endpoint is set    |
 
 To export, a deployment sets for example:
 
@@ -31,6 +36,7 @@ To export, a deployment sets for example:
 management.opentelemetry.tracing.export.otlp.endpoint=http://lgtm:4318/v1/traces
 management.otlp.metrics.export.enabled=true
 management.otlp.metrics.export.url=http://lgtm:4318/v1/metrics
+management.opentelemetry.logging.export.otlp.endpoint=http://lgtm:4318/v1/logs
 management.tracing.sampling.probability=1.0
 ```
 
