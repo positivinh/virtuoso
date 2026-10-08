@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: observability-dummy
+  docker:
+    compose:
+      enabled: true
+      file: classpath:compose-observability-dummy.yaml
+      skip:
+        in-tests: false
+      stop:
+        command: down
+  mongodb:
+    database: observability-dummy

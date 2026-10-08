@@ -1,0 +1,57 @@
+# virtuoso-observability
+
+Tracing, metrics and log correlation for Virtuoso applications, on top of Spring Boot's OpenTelemetry support
+(Micrometer Tracing with the OpenTelemetry bridge, OTLP exporters).
+
+## What the starter does
+
+`observability-starter` brings `spring-boot-starter-opentelemetry` and adds:
+
+- **MongoDB command spans** from the driver's own Micrometer support (Boot only configures MongoDB metrics). Spans never
+  carry the command text, which would include password hashes and personal data, unless
+  `virtuoso.observability.mongodb.command-payload=true`.
+- **No observations for noise**: requests (served or sent) whose path matches `virtuoso.observability.ignored-paths`,
+  by default `/actuator/**` (health checks) and `/eureka/**` (registration and heartbeats).
+- **Safe defaults** (`observability.properties`, lowest priority, so any application or deployment setting wins):
+  - `management.tracing.sampling.probability=0.1`
+  - `management.otlp.metrics.export.enabled=false`
+  - no OTLP endpoint, so nothing is exported until a deployment sets one.
+
+## Properties
+
+| Property                                           | Default                       | Meaning                                    |
+|----------------------------------------------------|-------------------------------|--------------------------------------------|
+| `virtuoso.observability.ignored-paths`             | `/actuator/**`, `/eureka/**`  | Request paths (Ant patterns) not observed  |
+| `virtuoso.observability.mongodb.enabled`           | `true`                        | MongoDB command spans                      |
+| `virtuoso.observability.mongodb.command-payload`   | `false`                       | Command text on MongoDB spans              |
+
+To export, a deployment sets for example:
+
+```properties
+management.opentelemetry.tracing.export.otlp.endpoint=http://lgtm:4318/v1/traces
+management.otlp.metrics.export.enabled=true
+management.otlp.metrics.export.url=http://lgtm:4318/v1/metrics
+management.tracing.sampling.probability=1.0
+```
+
+## Extension points
+
+- Replace the MongoDB customizer with a bean named `virtuosoMongoObservabilityCustomizer`.
+- Replace the path filter with your own `IgnoredPathsObservationPredicate` bean.
+
+## Commands
+
+### Install
+
+Docker must be running: the dummy project's tests start MongoDB through Docker Compose.
+
+```shell
+mvn clean install
+```
+
+### Run sonarqube analysis
+
+```shell
+export SONAR_TOKEN=[...]
+mvn clean verify sonar:sonar -P sonarqube
+```
