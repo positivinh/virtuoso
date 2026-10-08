@@ -18,3 +18,6 @@ updates:
       # one PR bumps both the root pom's spring-boot-starter-parent and the BOM's spring-boot.version
       spring-boot:
         patterns: [ 'org.springframework.boot:*' ]
+    ignore:
+      # must stay on the release built on Spring Boot's OpenTelemetry version; bump it by hand with Boot
+      - dependency-name: 'io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0'
