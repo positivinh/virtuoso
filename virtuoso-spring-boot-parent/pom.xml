@@ -14,14 +14,6 @@
     <packaging>pom</packaging>
     <name>Virtuoso Spring Boot starter parent</name>
 
-    <properties>
-        <mapstruct.version>1.6.3</mapstruct.version>
-        <plugin.sonar.version>5.0.0.4389</plugin.sonar.version>
-        <plugin.jacoco.version>0.8.15</plugin.jacoco.version>
-        <plugin.surefire.version>3.6.0</plugin.surefire.version>
-        <plugin.failsafe.version>3.5.4</plugin.failsafe.version>
-    </properties>
-
     <dependencies>
         <!-- Spring Boot -->
         <dependency>
@@ -254,17 +246,17 @@
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <version>${plugin.sonar.version}</version>
+                    <version>${sonar-maven-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${plugin.jacoco.version}</version>
+                    <version>${jacoco-maven-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${plugin.surefire.version}</version>
+                    <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <argLine>-Dspring.config.name=application,api,persistence,actuator</argLine>
                     </configuration>
@@ -272,7 +264,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${plugin.failsafe.version}</version>
+                    <version>${maven-failsafe-plugin.version}</version>
                     <configuration>
                         <classesDirectory>${project.build.outputDirectory}</classesDirectory>
                         <argLine>-Dspring.config.name=application,api,persistence,actuator</argLine>

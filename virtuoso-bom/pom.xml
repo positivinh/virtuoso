@@ -44,8 +44,13 @@
         <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
         <commons-lang3.version>3.18.0</commons-lang3.version>
         <commons-collections4.version>4.6.0</commons-collections4.version>
-        <!-- plugins version -->
-        <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
+        <crabshue-commons-csv.version>1.1.0</crabshue-commons-csv.version>
+        <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
+        <!-- plugins version (surefire, failsafe and git-commit-id override Spring Boot's properties) -->
+        <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.6.0</maven-failsafe-plugin.version>
+        <sonar-maven-plugin.version>5.0.0.4389</sonar-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -137,6 +142,11 @@
                 <groupId>com.github.crabs-hue.commons</groupId>
                 <artifactId>commons-json</artifactId>
                 <version>${crabshue-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.crabs-hue.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>${crabshue-commons-csv.version}</version>
             </dependency>
             <!-- Mongock -->
             <dependency>
@@ -238,7 +248,7 @@
             <dependency>
                 <groupId>org.openapitools</groupId>
                 <artifactId>jackson-databind-nullable</artifactId>
-                <version>0.2.6</version>
+                <version>${jackson-databind-nullable.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
