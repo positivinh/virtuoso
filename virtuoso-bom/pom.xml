@@ -222,6 +222,16 @@
                 <artifactId>jwt-starter</artifactId>
                 <version>${virtuoso.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.positivinh.virtuoso.observability</groupId>
+                <artifactId>observability-autoconfigure</artifactId>
+                <version>${virtuoso.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.positivinh.virtuoso.observability</groupId>
+                <artifactId>observability-starter</artifactId>
+                <version>${virtuoso.version}</version>
+            </dependency>
 
             <!-- Spring Cloud -->
             <dependency>
