@@ -73,12 +73,6 @@
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <!-- MapStruct -->
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -179,18 +173,6 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <configuration>
-                        <excludes>
-                            <exclude>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                            </exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <groupId>org.jetbrains.kotlin</groupId>
                     <artifactId>kotlin-maven-plugin</artifactId>
                     <version>${kotlin.version}</version>
@@ -200,7 +182,6 @@
                         </args>
                         <compilerPlugins>
                             <plugin>spring</plugin>
-                            <plugin>lombok</plugin>
                         </compilerPlugins>
                         <annotationProcessorPaths>
                             <path>
@@ -230,11 +211,6 @@
                             <groupId>org.springframework.boot</groupId>
                             <artifactId>spring-boot-autoconfigure-processor</artifactId>
                             <version>${spring-boot.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.jetbrains.kotlin</groupId>
-                            <artifactId>kotlin-maven-lombok</artifactId>
-                            <version>${kotlin.version}</version>
                         </dependency>
                     </dependencies>
                     <executions>
@@ -385,11 +361,4 @@
             </build>
         </profile>
     </profiles>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <url>https://repo.spring.io/milestone</url>
-        </pluginRepository>
-    </pluginRepositories>
-
 </project>
