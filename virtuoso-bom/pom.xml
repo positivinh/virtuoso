@@ -44,7 +44,7 @@
         <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
         <commons-lang3.version>3.18.0</commons-lang3.version>
         <commons-collections4.version>4.6.0</commons-collections4.version>
-        <crabshue-commons-csv.version>1.1.0</crabshue-commons-csv.version>
+        <crabshue-commons-csv.version>2.1.0</crabshue-commons-csv.version>
         <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
         <!-- alpha-only artifact; each release is built on one OpenTelemetry version: keep it on the release built on
              Spring Boot's opentelemetry.version (1.62.0 for 2.28.x), not the latest -->
