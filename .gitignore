@@ -122,3 +122,7 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
+
+### Local files
+.DS_Store
+.idea/
