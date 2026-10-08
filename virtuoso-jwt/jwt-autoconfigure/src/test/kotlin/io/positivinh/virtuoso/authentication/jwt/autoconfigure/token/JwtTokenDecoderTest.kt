@@ -44,7 +44,7 @@ class JwtTokenDecoderTest {
         val token =
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ2aXJ0dW9zbyIsInVzZXJuYW1lIjoidXNlcm5hbWUiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl19.s9saufmQVgQUfm1X71O-2wq3IxZT_LyzDIWmddlzaks"
 
-        val (username, authorities) = jwtTokenDecoder.extracAuthenticationFromToken(token)
+        val (username, authorities) = jwtTokenDecoder.extractAuthenticationFromToken(token)
 
         Assertions.assertThat(username).isEqualTo("username")
         Assertions.assertThat(authorities).containsAll(listOf("ROLE_USER", "ROLE_ADMIN"))
@@ -57,7 +57,7 @@ class JwtTokenDecoderTest {
             .withIssuer(jwtConfigurationProperties.issuer)
             .sign(jwtAlgorithm)
 
-        val thrownException = Assertions.catchException { jwtTokenDecoder.extracAuthenticationFromToken(token) }
+        val thrownException = Assertions.catchException { jwtTokenDecoder.extractAuthenticationFromToken(token) }
 
         Assertions.assertThat(thrownException).isInstanceOf(JWTVerificationException::class.java)
     }

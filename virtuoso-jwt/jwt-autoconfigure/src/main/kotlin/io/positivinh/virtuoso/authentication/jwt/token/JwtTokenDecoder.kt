@@ -25,7 +25,10 @@ class JwtTokenDecoder(
         return decodedJWT
     }
 
-    fun extracAuthenticationFromToken(token: String): AuthenticationVo {
+    /**
+     * Verifies [token] and returns the username and authorities it carries. A missing claim is a verification failure.
+     */
+    fun extractAuthenticationFromToken(token: String): AuthenticationVo {
 
         val decodedJwt = this.decodeToken(token)
 
