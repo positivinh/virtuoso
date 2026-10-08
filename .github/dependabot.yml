@@ -14,3 +14,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    groups:
+      # one PR bumps both the root pom's spring-boot-starter-parent and the BOM's spring-boot.version
+      spring-boot:
+        patterns: [ 'org.springframework.boot:*' ]
