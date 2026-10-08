@@ -19,6 +19,8 @@ class ObservabilityDefaultsEnvironmentPostProcessorTest {
 
         Assertions.assertThat(environment.getProperty("management.tracing.sampling.probability")).isEqualTo("0.1")
         Assertions.assertThat(environment.getProperty("management.otlp.metrics.export.enabled")).isEqualTo("false")
+        Assertions.assertThat(environment.getProperty("management.metrics.distribution.slo.http.server.requests"))
+            .startsWith("5ms,")
         // no endpoint: Boot creates no trace or log exporter without one
         Assertions.assertThat(environment.containsProperty("management.opentelemetry.tracing.export.otlp.endpoint"))
             .isFalse()

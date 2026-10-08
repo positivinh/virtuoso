@@ -20,6 +20,8 @@ Tracing, metrics and log correlation for Virtuoso applications, on top of Spring
   - `management.tracing.sampling.probability=0.1`
   - `management.otlp.metrics.export.enabled=false`
   - no OTLP endpoint, so nothing is exported until a deployment sets one.
+  - fixed latency buckets (`management.metrics.distribution.slo.*`) for HTTP server and client requests, MongoDB
+    commands and gateway routes, so dashboards can compute percentiles.
 
 ## Properties
 
