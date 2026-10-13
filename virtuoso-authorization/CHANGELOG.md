@@ -9,9 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- `security-core`: `Requester`, `RequesterProvider` and `PermissionPolicy`.
-- `security-autoconfigure` / `security-starter`: method security and the `appCustomPermissionEvaluator`, which
+- `authorization-core`: `Requester`, `RequesterProvider` and `PermissionPolicy`.
+- `authorization-autoconfigure` / `authorization-starter`: method security and the `appCustomPermissionEvaluator`, which
   resolves `hasPermission(...)` against every `PermissionPolicy` bean, without a web dependency.
 - Dummy project and reusable CI workflows.
 
-[Unreleased]: https://github.com/positivinh/virtuoso-security/commits/main
+[Unreleased]: https://github.com/positivinh/virtuoso-authorization/commits/main

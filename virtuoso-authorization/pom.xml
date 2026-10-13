@@ -11,26 +11,26 @@
         <relativePath/>
     </parent>
 
-    <groupId>io.github.positivinh.virtuoso.security</groupId>
-    <artifactId>virtuoso-security</artifactId>
+    <groupId>io.github.positivinh.virtuoso.authorization</groupId>
+    <artifactId>virtuoso-authorization</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Virtuoso Security</name>
+    <name>Virtuoso Authorization</name>
     <description>Virtuoso method security and permission evaluation, independent of the web stack</description>
-    <url>https://maven.pkg.github.com/positivinh/virtuoso-security</url>
+    <url>https://maven.pkg.github.com/positivinh/virtuoso-authorization</url>
 
     <modules>
-        <module>security-core</module>
-        <module>security-autoconfigure</module>
-        <module>security-starter</module>
-        <module>security-dummy-project</module>
+        <module>authorization-core</module>
+        <module>authorization-autoconfigure</module>
+        <module>authorization-starter</module>
+        <module>authorization-dummy-project</module>
     </modules>
 
 
     <scm>
-        <url>https://github.com/positivinh/virtuoso-security</url>
+        <url>https://github.com/positivinh/virtuoso-authorization</url>
         <tag>HEAD</tag>
-        <connection>scm:git:https://github.com/positivinh/virtuoso-security</connection>
+        <connection>scm:git:https://github.com/positivinh/virtuoso-authorization</connection>
     </scm>
 
     <repositories>
@@ -54,7 +54,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub positivinh Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/positivinh/virtuoso-security</url>
+                    <url>https://maven.pkg.github.com/positivinh/virtuoso-authorization</url>
                 </repository>
             </distributionManagement>
         </profile>

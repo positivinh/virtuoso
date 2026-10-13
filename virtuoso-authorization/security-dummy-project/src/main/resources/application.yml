@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: security-dummy-project
-  main:
-    # no web stack: method security must work on its own
-    web-application-type: none
