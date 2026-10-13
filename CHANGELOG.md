@@ -9,7 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- `virtuoso-bom` manages the `security`, `web-mvc` and `observability` starters, the OpenTelemetry Logback appender,
+- `virtuoso-bom` manages the `authorization`, `web-mvc` and `observability` starters, the OpenTelemetry Logback
+  appender,
   `mongodb-starter-test`, the OpenAPI generation tools and the crabshue dependencies.
 - Reusable, centralized GitHub Actions workflows (`ci-stable` tag); snapshots are published to Maven Central.
 - Dependabot configuration.
