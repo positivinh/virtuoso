@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 
 - `authorization-core`: `Requester`, `RequesterProvider` and `PermissionPolicy`.
+- `authorization-core`: `OwnerOrAdminPermissionPolicy`, a base policy for "administrators may do anything, the owner
+  may perform a set of operations", and `VirtuosoAuthorities` (`ROLE_USER`, `ROLE_ADMIN`, `ROLE_SYSTEM`,
+  `ADMINISTRATORS`).
 - `authorization-autoconfigure` / `authorization-starter`: method security and the `appCustomPermissionEvaluator`, which
   resolves `hasPermission(...)` against every `PermissionPolicy` bean, without a web dependency.
 - Dummy project and reusable CI workflows.

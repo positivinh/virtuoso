@@ -10,17 +10,24 @@ Any Spring Boot application (web, batch, message consumer) that depends on `auth
 - a `RequesterProvider` bean exposing the current caller as a plain `Requester`.
 
 Domain modules depend only on `authorization-core` (`Requester`, `PermissionPolicy`, `RequesterProvider`), which has no
-Spring code.
+Spring code. Most policies follow one rule, "administrators may do anything, the owner may do X": extend
+`OwnerOrAdminPermissionPolicy` for it, with administrators defaulting to `VirtuosoAuthorities.ADMINISTRATORS`
+(`ROLE_ADMIN`, `ROLE_SYSTEM`):
+
+```kotlin
+@Component
+class UserProfilePermissionPolicy : OwnerOrAdminPermissionPolicy(USER_PROFILE, setOf(READ, UPDATE))
+```
 See [ADR-0002](https://github.com/positivinh/virtuoso-agentic/blob/main/docs/adr/0002-virtuoso-authorization-starter.md).
 
 ## Modules
 
-| Module                        | Content                                                                                                   |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------|
-| `authorization-core`          | `Requester`, `PermissionPolicy`, `RequesterProvider`                                                      |
-| `authorization-autoconfigure` | `VirtuosoAuthorizationAutoConfiguration`, `PolicyPermissionEvaluator`, `SecurityContextRequesterProvider` |
-| `authorization-starter`       | `authorization-core` + `authorization-autoconfigure` + Spring Security core/config (no web)               |
-| `authorization-dummy-project` | Non-web sample application and integration tests                                                          |
+| Module                        | Content                                                                                                     |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------|
+| `authorization-core`          | `Requester`, `PermissionPolicy`, `RequesterProvider`, `OwnerOrAdminPermissionPolicy`, `VirtuosoAuthorities` |
+| `authorization-autoconfigure` | `VirtuosoAuthorizationAutoConfiguration`, `PolicyPermissionEvaluator`, `SecurityContextRequesterProvider`   |
+| `authorization-starter`       | `authorization-core` + `authorization-autoconfigure` + Spring Security core/config (no web)                 |
+| `authorization-dummy-project` | Non-web sample application and integration tests                                                            |
 
 ## Extension points
 
