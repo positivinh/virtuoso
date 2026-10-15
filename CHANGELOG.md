@@ -22,6 +22,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   upgrades.
 - All versions are BOM properties; sibling modules use `${project.version}`.
 - Development follows GitHub flow.
+- The starter libraries (`virtuoso-domain-validation`, `-data-mongodb`, `-jwt`, `-authorization`, `-web-security`,
+  `-web-mvc`, `-observability`) moved into this repository, with their history, as modules of the root POM. They are
+  built, published to GitHub Packages and released to Maven Central together with the BOM and parents, under one tag.
+  groupIds, artifactIds and versions are unchanged, so consumers change nothing. Their packages are now published from
+  `positivinh/virtuoso`; the old library repositories are archived.
 
 ### Removed
 
