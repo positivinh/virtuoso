@@ -1,0 +1,9 @@
+name: observability-dummy
+
+services:
+  mongo:
+    image: mongo:8.0
+    ports:
+      - "27019:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=observability-dummy
