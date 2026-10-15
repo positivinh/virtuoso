@@ -21,4 +21,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   resolves `hasPermission(...)` against every `PermissionPolicy` bean, without a web dependency.
 - Dummy project and reusable CI workflows.
 
+### Removed
+
+- `authorization-dummy-project` is no longer published: it is a sample app for the integration tests.
+
 [Unreleased]: https://github.com/positivinh/virtuoso/commits/main/virtuoso-authorization

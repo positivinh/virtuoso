@@ -12,6 +12,11 @@
     <artifactId>domain-validation-dummy-project</artifactId>
     <name>Virtuoso domain validation dummy project</name>
 
+    <properties>
+        <!-- sample app for integration tests: never deployed -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.github.positivinh.virtuoso.domain</groupId>

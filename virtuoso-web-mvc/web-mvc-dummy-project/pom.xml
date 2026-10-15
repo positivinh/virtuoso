@@ -12,6 +12,11 @@
     <artifactId>web-mvc-dummy-project</artifactId>
     <name>Virtuoso web MVC dummy project</name>
 
+    <properties>
+        <!-- sample app for integration tests: never deployed -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.github.positivinh.virtuoso.web</groupId>
