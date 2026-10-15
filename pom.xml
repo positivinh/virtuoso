@@ -25,6 +25,7 @@
         <module>dummy-project</module>
         <module>virtuoso-domain-validation</module>
         <module>virtuoso-data-mongodb</module>
+        <module>virtuoso-jwt</module>
     </modules>
 
     <properties>
