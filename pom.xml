@@ -24,6 +24,7 @@
         <module>virtuoso-spring-boot-parent</module>
         <module>dummy-project</module>
         <module>virtuoso-domain-validation</module>
+        <module>virtuoso-data-mongodb</module>
     </modules>
 
     <properties>
