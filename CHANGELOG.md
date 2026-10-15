@@ -22,6 +22,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kotlin 2.4, Dokka 2.2, Testcontainers 2, Mockito 5.24, springdoc 3.1, JaCoCo 0.8.15 and other plugin and dependency
   upgrades.
 - All versions are BOM properties; sibling modules use `${project.version}`.
+- **Breaking:** OpenAPI Generator 7.26 (`openapi.codegen.version`, was 7.9). Optional fields and request bodies of
+  generated models are annotated `@Nullable`, so Kotlin code (with `-Xjsr305=strict`) sees them as nullable types:
+  handle `null` where a facade passes them on as non-null values.
+- `central-publishing-maven-plugin` 0.12.0.
 - Development follows GitHub flow.
 - The starter libraries (`virtuoso-domain-validation`, `-data-mongodb`, `-jwt`, `-authorization`, `-web-security`,
   `-web-mvc`, `-observability`) moved into this repository, with their history, as modules of the root POM. They are
