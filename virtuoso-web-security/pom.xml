@@ -8,7 +8,7 @@
         <groupId>io.github.positivinh.virtuoso</groupId>
         <artifactId>virtuoso-spring-boot-parent</artifactId>
         <version>2.0.0-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../virtuoso-spring-boot-parent/pom.xml</relativePath>
     </parent>
 
     <groupId>io.github.positivinh.virtuoso.web</groupId>
@@ -17,80 +17,11 @@
     <name>Virtuoso web security</name>
     <description>Software factory components for web security</description>
     <packaging>pom</packaging>
-    <url>https://maven.pkg.github.com/positivinh/virtuoso-web-security</url>
 
     <modules>
         <module>web-security-autoconfigure</module>
         <module>web-security-starter</module>
         <module>web-security-dummy-project</module>
     </modules>
-
-    <repositories>
-        <repository>
-            <id>github</id>
-            <name>GitHub positivinh Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/positivinh/*</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <scm>
-        <url>https://github.com/positivinh/virtuoso-web-security</url>
-        <tag>HEAD</tag>
-        <connection>scm:git:https://github.com/positivinh/virtuoso-web-security</connection>
-    </scm>
-
-    <profiles>
-        <profile>
-            <id>github</id>
-            <distributionManagement>
-                <repository>
-                    <id>github</id>
-                    <name>GitHub positivinh Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/positivinh/virtuoso-web-security</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>maven-central</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
-                                    </gpgArguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.central</groupId>
-                        <artifactId>central-publishing-maven-plugin</artifactId>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <publishingServerId>central</publishingServerId>
-                            <autoPublish>true</autoPublish>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
 </project>

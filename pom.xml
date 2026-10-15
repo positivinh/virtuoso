@@ -27,6 +27,7 @@
         <module>virtuoso-data-mongodb</module>
         <module>virtuoso-jwt</module>
         <module>virtuoso-authorization</module>
+        <module>virtuoso-web-security</module>
     </modules>
 
     <properties>
