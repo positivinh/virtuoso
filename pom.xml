@@ -107,7 +107,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
-                            <!-- the plugin ignores maven.deploy.skip: keep in step with the *dummy-project modules -->
+                            <!-- central-publishing does not honor maven.deploy.skip, so every *-dummy-project module must also be listed here -->
                             <excludeArtifacts>
                                 <artifact>dummy-project</artifact>
                                 <artifact>domain-validation-dummy-project</artifact>
