@@ -26,7 +26,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   `-web-mvc`, `-observability`) moved into this repository, with their history, as modules of the root POM. They are
   built, published to GitHub Packages and released to Maven Central together with the BOM and parents, under one tag.
   groupIds, artifactIds and versions are unchanged, so consumers change nothing. Their packages are now published from
-  `positivinh/virtuoso`; the old library repositories are archived.
+  `positivinh/virtuoso`; the old library repositories are archived. Each library keeps
+  its own `CHANGELOG.md`; this file lists changes to the BOM, parents and build, and links to each library's section
+  on release.
 
 ### Removed
 

@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 > Since 2.0.0 this library lives in the [`virtuoso`](https://github.com/positivinh/virtuoso) repository and is released
-> with it. New changes go in the root [`CHANGELOG.md`](../CHANGELOG.md); this file is kept as history, and its
-> `[Unreleased]` entries ship in 2.0.0.
+> with it, under the same version. Its changes are still listed here; the root [`CHANGELOG.md`](../CHANGELOG.md) links to
+> each release's section. Links to 1.x point to the archived repository.
 
 ## [Unreleased]
 
@@ -47,7 +47,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   `appAuthorizationFilter` bean; header names are configurable.
 - Custom permission evaluator bean `appCustomPermissionEvaluator`.
 
-[Unreleased]: https://github.com/positivinh/virtuoso-web-security/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/positivinh/virtuoso/commits/main/virtuoso-web-security
 [1.2.0]: https://github.com/positivinh/virtuoso-web-security/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/positivinh/virtuoso-web-security/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/positivinh/virtuoso-web-security/releases/tag/v1.0.0
