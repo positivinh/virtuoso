@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.positivinh.virtuoso</groupId>
+        <artifactId>virtuoso-spring-boot-parent</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>io.github.positivinh.virtuoso.authentication</groupId>
+    <artifactId>virtuoso-jwt</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Virtuoso JWT</name>
+    <description>Virtuoso JWT</description>
+    <url>https://maven.pkg.github.com/positivinh/virtuoso-jwt</url>
+
+    <modules>
+        <module>jwt-autoconfigure</module>
+        <module>jwt-starter</module>
+        <module>jwt-dummy-project</module>
+    </modules>
+
+    <properties>
+        <java-jwt.version>4.5.0</java-jwt.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <scm>
+        <url>https://github.com/positivinh/virtuoso-jwt</url>
+        <tag>HEAD</tag>
+        <connection>scm:git:https://github.com/positivinh/virtuoso-jwt</connection>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub positivinh Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/positivinh/*</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub positivinh Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/positivinh/virtuoso-jwt</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>maven-central</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
