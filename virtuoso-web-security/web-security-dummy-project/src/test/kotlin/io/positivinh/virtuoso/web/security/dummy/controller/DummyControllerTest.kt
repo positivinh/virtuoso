@@ -1,0 +1,57 @@
+package io.positivinh.virtuoso.web.security.dummy.controller
+
+import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
+import org.springframework.http.HttpHeaders
+import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class DummyControllerTest {
+
+    @Autowired
+    lateinit var mvc: MockMvc
+
+    @Test
+    fun autoconfiguredEndpointsAuthorizations() {
+
+        mvc.perform(MockMvcRequestBuilders.get("/api/dummy"))
+            .andExpect(MockMvcResultMatchers.status().isForbidden)
+
+        mvc.perform(MockMvcRequestBuilders.get("/api/dummy")
+            .header(HttpHeaders.AUTHORIZATION, "Bearer token"))
+            .andExpect(MockMvcResultMatchers.status().isOk)
+
+        mvc.perform(MockMvcRequestBuilders.get("/actuator/health"))
+            .andExpect(MockMvcResultMatchers.status().isOk)
+
+        mvc.perform(MockMvcRequestBuilders.post("/actuator/health"))
+            .andExpect(MockMvcResultMatchers.status().isForbidden)
+
+        mvc.perform(MockMvcRequestBuilders.get("/actuator/info"))
+            .andExpect(MockMvcResultMatchers.status().isOk)
+
+        // every endpoint is exposed in the dummy app, but only the probes are public
+        mvc.perform(MockMvcRequestBuilders.get("/actuator/env"))
+            .andExpect(MockMvcResultMatchers.status().isForbidden)
+
+        mvc.perform(MockMvcRequestBuilders.get("/actuator"))
+            .andExpect(MockMvcResultMatchers.status().isForbidden)
+    }
+
+    @Test
+    fun endpointSecuredByPermission() {
+
+        mvc.perform(MockMvcRequestBuilders.get("/api/dummy/with-permission/ok")
+            .header(HttpHeaders.AUTHORIZATION, "Bearer token"))
+            .andExpect(MockMvcResultMatchers.status().isOk)
+
+        mvc.perform(MockMvcRequestBuilders.get("/api/dummy/with-permission/nok")
+            .header(HttpHeaders.AUTHORIZATION, "Bearer token"))
+            .andExpect(MockMvcResultMatchers.status().isForbidden)
+    }
+}
