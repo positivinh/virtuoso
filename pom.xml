@@ -29,6 +29,7 @@
         <module>virtuoso-authorization</module>
         <module>virtuoso-web-security</module>
         <module>virtuoso-web-mvc</module>
+        <module>virtuoso-observability</module>
     </modules>
 
     <properties>
