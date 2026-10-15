@@ -13,6 +13,11 @@
     <artifactId>dummy-project</artifactId>
     <name>Virtuoso dummy project to test integration</name>
 
+    <properties>
+        <!-- sample app for integration tests: never deployed -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>

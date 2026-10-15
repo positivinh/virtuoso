@@ -11,6 +11,11 @@
 
     <artifactId>authorization-dummy-project</artifactId>
     <name>Virtuoso Authorization dummy project</name>
+
+    <properties>
+        <!-- sample app for integration tests: never deployed -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
     <description>Non-web sample application proving method security works without a web stack</description>
 
     <dependencies>

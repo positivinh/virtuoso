@@ -18,4 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Logs shipped over OTLP through the OpenTelemetry Logback appender.
 - Latency histogram buckets for percentile dashboards.
 
+### Removed
+
+- `observability-dummy-project` is no longer published: it is a sample app for the integration tests.
+
 [Unreleased]: https://github.com/positivinh/virtuoso/commits/main/virtuoso-observability

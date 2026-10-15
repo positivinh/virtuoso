@@ -37,6 +37,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Removed
 
+- The `dummy-project` sample app is no longer deployed: it is skipped on GitHub Packages and left out of the Maven
+  Central bundle, like every library's `*-dummy-project`.
 - `virtuoso-bom` no longer pins JSON Path 2.9.0 and Liquibase 4.33.0 below Spring Boot's versions, and drops
   its ineffective `junit-jupiter.version` and `feign.version` properties.
 - Lombok plugin and dependencies, unused repositories, IntelliJ IDEA configuration files.

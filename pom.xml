@@ -107,6 +107,17 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
+                            <!-- the plugin ignores maven.deploy.skip: keep in step with the *dummy-project modules -->
+                            <excludeArtifacts>
+                                <artifact>dummy-project</artifact>
+                                <artifact>domain-validation-dummy-project</artifact>
+                                <artifact>mongodb-dummy-project</artifact>
+                                <artifact>jwt-dummy-project</artifact>
+                                <artifact>authorization-dummy-project</artifact>
+                                <artifact>web-security-dummy-project</artifact>
+                                <artifact>web-mvc-dummy-project</artifact>
+                                <artifact>observability-dummy-project</artifact>
+                            </excludeArtifacts>
                         </configuration>
                     </plugin>
                 </plugins>
