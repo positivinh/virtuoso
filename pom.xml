@@ -28,6 +28,7 @@
         <module>virtuoso-jwt</module>
         <module>virtuoso-authorization</module>
         <module>virtuoso-web-security</module>
+        <module>virtuoso-web-mvc</module>
     </modules>
 
     <properties>
