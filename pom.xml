@@ -26,6 +26,7 @@
         <module>virtuoso-domain-validation</module>
         <module>virtuoso-data-mongodb</module>
         <module>virtuoso-jwt</module>
+        <module>virtuoso-authorization</module>
     </modules>
 
     <properties>
