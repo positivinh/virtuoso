@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - **Breaking:** Spring Boot 4.1.
 - JWT claim handling and configuration are more extensible.
 - Reusable CI workflows; versions come from the BOM.
+- `java-jwt` 4.6.2, managed by `virtuoso-bom`.
 
 ### Fixed
 

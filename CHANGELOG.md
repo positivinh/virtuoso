@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- `virtuoso-bom` manages `com.auth0:java-jwt` (4.6.2).
 - `virtuoso-bom` manages the `authorization`, `web-mvc` and `observability` starters, the OpenTelemetry Logback
   appender,
   `mongodb-starter-test`, the OpenAPI generation tools and the crabshue dependencies.
@@ -32,6 +33,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Removed
 
+- `virtuoso-bom` no longer pins JSON Path 2.9.0 and Liquibase 4.33.0 below Spring Boot's versions, and drops
+  its ineffective `junit-jupiter.version` and `feign.version` properties.
 - Lombok plugin and dependencies, unused repositories, IntelliJ IDEA configuration files.
 
 ## [1.2.0] - 2025-11-16
