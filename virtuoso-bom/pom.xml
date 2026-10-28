@@ -35,7 +35,7 @@
         <testcontainers.version>2.0.5</testcontainers.version>
         <swagger-v3.version>2.2.55</swagger-v3.version>
         <openapi.codegen.version>7.26.0</openapi.codegen.version>
-        <springdoc-openapi.version>3.1.1</springdoc-openapi.version>
+        <springdoc-openapi.version>3.2.0</springdoc-openapi.version>
         <mongock.version>5.5.1</mongock.version>
         <jakarta-validation.version>3.1.1</jakarta-validation.version>
         <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
