@@ -39,7 +39,7 @@
         <mongock.version>5.5.1</mongock.version>
         <jakarta-validation.version>3.1.1</jakarta-validation.version>
         <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
-        <commons-lang3.version>3.21.0</commons-lang3.version>
+        <commons-lang3.version>3.22.0</commons-lang3.version>
         <commons-collections4.version>4.6.0</commons-collections4.version>
         <jackson-databind-nullable.version>0.2.13</jackson-databind-nullable.version>
         <!-- alpha-only artifact; each release is built on one OpenTelemetry version: keep it on the release built on
